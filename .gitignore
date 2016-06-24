@@ -18,6 +18,7 @@ DerivedData/
 xcuserdata/
 
 ## Other
+opencv2.framework
 *.moved-aside
 *.xcuserstate
 

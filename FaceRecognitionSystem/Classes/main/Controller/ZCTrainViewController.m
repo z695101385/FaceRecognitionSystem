@@ -8,6 +8,7 @@
 
 #import "ZCTrainViewController.h"
 #import "ZCFaceDeteController.h"
+#import "ZCFeatureExtractionTool.h"
 
 @interface ZCTrainViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
@@ -97,6 +98,9 @@
 
 - (IBAction)trainingImage{
     
+    ZCFeatureExtractionTool *ft = [[ZCFeatureExtractionTool alloc] initWithFaceImage:_faceImageView.image];
+    
+    [ft featureExtraction];
 }
 
 - (void)viewDidLoad {

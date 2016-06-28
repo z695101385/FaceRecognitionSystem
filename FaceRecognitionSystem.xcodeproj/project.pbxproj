@@ -10,6 +10,7 @@
 		F70A4B931CFED2B500A21173 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F70A4B921CFED2B500A21173 /* opencv2.framework */; };
 		F70A4B9B1CFED44500A21173 /* ZCSaveTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F70A4B9A1CFED44500A21173 /* ZCSaveTool.m */; };
 		F70A4B9D1CFED48000A21173 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F70A4B9C1CFED47F00A21173 /* AssetsLibrary.framework */; };
+		F72ADB281D1CE2BE00C4BA1F /* ZCFeatureExtractionTool.mm in Sources */ = {isa = PBXBuildFile; fileRef = F72ADB271D1CE2BE00C4BA1F /* ZCFeatureExtractionTool.mm */; };
 		F747FEE81CFFD99A002A38BF /* ZCFaceDeteController.m in Sources */ = {isa = PBXBuildFile; fileRef = F747FEE61CFFD99A002A38BF /* ZCFaceDeteController.m */; };
 		F747FEE91CFFD99A002A38BF /* ZCFaceDeteController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F747FEE71CFFD99A002A38BF /* ZCFaceDeteController.xib */; };
 		F747FEEC1CFFDE3A002A38BF /* ZCMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = F747FEEB1CFFDE3A002A38BF /* ZCMaskView.m */; };
@@ -33,6 +34,8 @@
 		F7D229241CF7158E000AB735 /* ZCViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7D229231CF7158E000AB735 /* ZCViewController.storyboard */; };
 		F7D2292A1CF7192C000AB735 /* ZCTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D229291CF7192C000AB735 /* ZCTestViewController.m */; };
 		F7D2292D1CF71945000AB735 /* ZCTrainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D2292C1CF71945000AB735 /* ZCTrainViewController.m */; };
+		F7FDADEE1D20F2D6008FF16C /* ZCFeature.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FDADED1D20F2D6008FF16C /* ZCFeature.m */; };
+		F7FDADF21D2108E0008FF16C /* haarcascade_eye_tree_eyeglasses.xml in Resources */ = {isa = PBXBuildFile; fileRef = F7FDADF11D2108E0008FF16C /* haarcascade_eye_tree_eyeglasses.xml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +60,8 @@
 		F70A4B991CFED44500A21173 /* ZCSaveTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCSaveTool.h; sourceTree = "<group>"; };
 		F70A4B9A1CFED44500A21173 /* ZCSaveTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCSaveTool.m; sourceTree = "<group>"; };
 		F70A4B9C1CFED47F00A21173 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		F72ADB261D1CE2BE00C4BA1F /* ZCFeatureExtractionTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCFeatureExtractionTool.h; sourceTree = "<group>"; };
+		F72ADB271D1CE2BE00C4BA1F /* ZCFeatureExtractionTool.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ZCFeatureExtractionTool.mm; sourceTree = "<group>"; };
 		F747FEE51CFFD99A002A38BF /* ZCFaceDeteController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCFaceDeteController.h; sourceTree = "<group>"; };
 		F747FEE61CFFD99A002A38BF /* ZCFaceDeteController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCFaceDeteController.m; sourceTree = "<group>"; };
 		F747FEE71CFFD99A002A38BF /* ZCFaceDeteController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZCFaceDeteController.xib; sourceTree = "<group>"; };
@@ -101,6 +106,9 @@
 		F7D229291CF7192C000AB735 /* ZCTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCTestViewController.m; sourceTree = "<group>"; };
 		F7D2292B1CF71945000AB735 /* ZCTrainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCTrainViewController.h; sourceTree = "<group>"; };
 		F7D2292C1CF71945000AB735 /* ZCTrainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCTrainViewController.m; sourceTree = "<group>"; };
+		F7FDADEC1D20F2D6008FF16C /* ZCFeature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCFeature.h; sourceTree = "<group>"; };
+		F7FDADED1D20F2D6008FF16C /* ZCFeature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCFeature.m; sourceTree = "<group>"; };
+		F7FDADF11D2108E0008FF16C /* haarcascade_eye_tree_eyeglasses.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_eye_tree_eyeglasses.xml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +145,10 @@
 				F70A4B9A1CFED44500A21173 /* ZCSaveTool.m */,
 				F747FEF51D0037AC002A38BF /* ZCCvImage.h */,
 				F747FEF61D0037AC002A38BF /* ZCCvImage.mm */,
+				F72ADB261D1CE2BE00C4BA1F /* ZCFeatureExtractionTool.h */,
+				F72ADB271D1CE2BE00C4BA1F /* ZCFeatureExtractionTool.mm */,
+				F7FDADEC1D20F2D6008FF16C /* ZCFeature.h */,
+				F7FDADED1D20F2D6008FF16C /* ZCFeature.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -290,6 +302,7 @@
 			isa = PBXGroup;
 			children = (
 				F747FEED1D003452002A38BF /* haarcascade_frontalface_alt2.xml */,
+				F7FDADF11D2108E0008FF16C /* haarcascade_eye_tree_eyeglasses.xml */,
 				F7650B371CF710B600DE8CC5 /* AppDelegate.h */,
 				F7650B381CF710B600DE8CC5 /* AppDelegate.m */,
 				F7650B391CF710B600DE8CC5 /* main.m */,
@@ -474,6 +487,7 @@
 				F7D229241CF7158E000AB735 /* ZCViewController.storyboard in Resources */,
 				F747FEE91CFFD99A002A38BF /* ZCFaceDeteController.xib in Resources */,
 				F7650B591CF7114D00DE8CC5 /* MBProgressHUD.bundle in Resources */,
+				F7FDADF21D2108E0008FF16C /* haarcascade_eye_tree_eyeglasses.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -500,8 +514,10 @@
 			files = (
 				F7650B3C1CF710B600DE8CC5 /* main.m in Sources */,
 				F7650B551CF7114D00DE8CC5 /* UIView+Frame.m in Sources */,
+				F72ADB281D1CE2BE00C4BA1F /* ZCFeatureExtractionTool.mm in Sources */,
 				F7650B5A1CF7114D00DE8CC5 /* MBProgressHUD.m in Sources */,
 				F7650B581CF7114D00DE8CC5 /* MBProgressHUD+XMG.m in Sources */,
+				F7FDADEE1D20F2D6008FF16C /* ZCFeature.m in Sources */,
 				F7650B541CF7114D00DE8CC5 /* UIImage+Image.m in Sources */,
 				F7650B3B1CF710B600DE8CC5 /* AppDelegate.m in Sources */,
 				F7650B571CF7114D00DE8CC5 /* UIImage+BoxBlur.m in Sources */,

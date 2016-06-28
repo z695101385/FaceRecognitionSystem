@@ -48,7 +48,7 @@
     return cvImage;
 }
 
--(void)setImage:(UIImage *)image
+- (void)setImage:(UIImage *)image
 {
     _image = image;
     
@@ -136,9 +136,9 @@
     {
         CvRect cvrect = *(CvRect*)cvGetSeqElem(_faces, index);
         
-        cvSetImageROI(_IplImage, cvRect(cvrect.x * _ZCScale, cvrect.y * _ZCScale, cvrect.width * _ZCScale, cvrect.height * _ZCScale));
-        
         _ROI = CGRectMake(cvrect.x * _ZCScale, cvrect.y * _ZCScale, cvrect.width * _ZCScale, cvrect.height * _ZCScale);
+        
+        cvSetImageROI(_IplImage, cvRect(cvrect.x * _ZCScale, cvrect.y * _ZCScale, cvrect.width * _ZCScale, cvrect.height * _ZCScale));
         
         _RoIImg = cvCreateImage(cvSize(cvrect.width * _ZCScale,cvrect.height * _ZCScale), IPL_DEPTH_8U, 3);
         
@@ -244,10 +244,12 @@
     
     cvResize(grayImg, small_image);
     
-    //加载分类器
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"haarcascade_frontalface_alt2" ofType:@"xml"];
+//    cvEqualizeHist(small_image, small_image);
     
-    CvHaarClassifierCascade *cascade = (CvHaarClassifierCascade*)cvLoad([path cStringUsingEncoding:NSASCIIStringEncoding], NULL, NULL, NULL);
+    //加载分类器
+    NSString *facePath = [[NSBundle mainBundle] pathForResource:@"haarcascade_frontalface_alt2" ofType:@"xml"];
+    
+    CvHaarClassifierCascade *cascade = (CvHaarClassifierCascade*)cvLoad([facePath cStringUsingEncoding:NSASCIIStringEncoding], NULL, NULL, NULL);
     
     CvMemStorage *storage = cvCreateMemStorage(0);
     
@@ -259,18 +261,38 @@
     
     _numberOfFace = _faces->total;
     
+    cvReleaseHaarClassifierCascade(&cascade);
+    
+//    NSString *eyePath = [[NSBundle mainBundle] pathForResource:@"haarcascade_frontalface_alt2" ofType:@"xml"];
+    
+//    CvHaarClassifierCascade *eye_treeCascade = (CvHaarClassifierCascade*)cvLoad([eyePath cStringUsingEncoding:NSASCIIStringEncoding], NULL, NULL, NULL);
+    
+//    CvSeq *eyes;
+    
     if (_numberOfFace > 0 && _RoiRectArr == nil) {
         
         for (int i = 0; i < _numberOfFace; i++) {
             
             CvRect cvrect = *(CvRect*)cvGetSeqElem(_faces, i);
             
-            _ROI = CGRectMake(cvrect.x * _ZCScale, cvrect.y * _ZCScale, cvrect.width * _ZCScale, cvrect.height * _ZCScale);
+            cvSetImageROI(_IplImage, cvRect(cvrect.x * _ZCScale, cvrect.y * _ZCScale, cvrect.width * _ZCScale, cvrect.height * _ZCScale));
             
-            NSValue *roiValue = [NSValue valueWithCGRect:_ROI];
+//            eyes = cvHaarDetectObjects(_IplImage, eye_treeCascade, storage , 1.2, 2, CV_HAAR_SCALE_IMAGE, cvSize(0,0), cvSize(0, 0));
+//            
+//            if (eyes->total > 0) {
+//                
+                _ROI = CGRectMake(cvrect.x * _ZCScale, cvrect.y * _ZCScale, cvrect.width * _ZCScale, cvrect.height * _ZCScale);
+                
+                NSValue *roiValue = [NSValue valueWithCGRect:_ROI];
+                
+                [self.RoiRectArr addObject:roiValue];
+//
+//            }
             
-            [self.RoiRectArr addObject:roiValue];
+            cvResetImageROI(_IplImage);
         }
+        
+//        cvReleaseHaarClassifierCascade(&eye_treeCascade);
         
         [self drawRoiImage];
         

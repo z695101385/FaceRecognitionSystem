@@ -53,6 +53,11 @@
     // Do any additional setup after loading the view from its nib.
     
     self.imageView.image = self.image;
+    
+    NSString *method = [self.feature componentsSeparatedByString:@"_"][1];
+    
+    self.featureTypeLabel.text = [NSString stringWithFormat:@"特征类型：%@",method];
+    
 }
 
 - (void)didReceiveMemoryWarning {

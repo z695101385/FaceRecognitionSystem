@@ -39,7 +39,7 @@
 - (IBAction)choose:(id)sender {
     
     if (_block) {
-        _block([UIImage imageWithCaputureView:_maskView]);
+        _block([UIImage zc_imageWithCaputureView:_maskView]);
     }
     
     [ZCKeyWindow.rootViewController dismissViewControllerAnimated:YES completion:nil];
@@ -56,7 +56,7 @@
     if (numberOfFace == 0) {
         _countLabel.text = @"Face not detected";
     } else {
-        _countLabel.text = [NSString stringWithFormat:@"%ld of total %ld", index + 1, numberOfFace];
+        _countLabel.text = [NSString stringWithFormat:@"%d of total %d", index + 1, numberOfFace];
     }
 }
 

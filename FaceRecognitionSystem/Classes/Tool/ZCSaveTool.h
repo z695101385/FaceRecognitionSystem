@@ -10,4 +10,7 @@
 
 @interface ZCSaveTool : NSObject
 
+
++ (instancetype)sharedInstance;
+
 @end

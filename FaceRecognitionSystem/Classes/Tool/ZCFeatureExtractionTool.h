@@ -6,6 +6,11 @@
 //  Copyright © 2016年 zhangchen. All rights reserved.
 //
 
+typedef enum : NSUInteger {
+    ZCFeatureExtractMethodLBP  = 0,
+    ZCFeatureExtractMethodMLBP = 1,
+} ZCFeatureExtractMethod;
+
 #import <Foundation/Foundation.h>
 
 @interface ZCFeatureExtractionTool : NSObject
@@ -15,6 +20,6 @@
 
 - (instancetype)initWithFaceImage:(UIImage *)image;
 
-- (NSArray *)featureExtraction;
+- (NSString *)featureExtractUseMethod:(ZCFeatureExtractMethod)method;
 
 @end

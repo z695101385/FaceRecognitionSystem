@@ -9,18 +9,19 @@
 #import "ZCTrainViewController.h"
 #import "ZCFaceDeteController.h"
 #import "ZCFeatureExtractionTool.h"
+#import "ZCRequestServer.h"
+#import "SVProgressHUD.h"
+#import "ZCUpdataViewController.h"
 
 @interface ZCTrainViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *faceImageView;
+/** feature */
+@property (nonatomic, strong) NSString *feature;
 
 @end
 
 @implementation ZCTrainViewController
-
-- (IBAction)databaseDownload{
-    
-}
 
 - (IBAction)addImage {
     UIAlertController *AC = [UIAlertController alertControllerWithTitle:@"请选择图片" message:@"从以下两种方式中选择一种" preferredStyle:UIAlertControllerStyleActionSheet];
@@ -98,9 +99,63 @@
 
 - (IBAction)trainingImage{
     
-    ZCFeatureExtractionTool *ft = [[ZCFeatureExtractionTool alloc] initWithFaceImage:_faceImageView.image];
+    UIAlertController *AC = [UIAlertController alertControllerWithTitle:@"请选择特征提取方法" message:@"从中选择一种" preferredStyle:UIAlertControllerStyleActionSheet];
     
-    [ft featureExtraction];
+    UIAlertAction *act1 = [UIAlertAction actionWithTitle:@"LBP" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        ZCFeatureExtractionTool *ft = [[ZCFeatureExtractionTool alloc] initWithFaceImage:_faceImageView.image];
+        
+        self.feature = [ft featureExtractUseMethod:ZCFeatureExtractMethodLBP];
+    }];
+    
+    UIAlertAction *act2 = [UIAlertAction actionWithTitle:@"MLBP" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        
+        ZCFeatureExtractionTool *ft = [[ZCFeatureExtractionTool alloc] initWithFaceImage:_faceImageView.image];
+        
+        self.feature = [ft featureExtractUseMethod:ZCFeatureExtractMethodMLBP];
+    }];
+    
+    UIAlertAction *act3 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    
+    [AC addAction:act1];
+    [AC addAction:act2];
+    [AC addAction:act3];
+    
+    [self presentViewController:AC animated:YES completion:nil];
+    
+    
+}
+- (IBAction)featureRecognition {
+    UIAlertController *AC = [UIAlertController alertControllerWithTitle:@"请选择识别方法" message:@"从中选择一种" preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction *act1 = [UIAlertAction actionWithTitle:@"最近邻" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [[ZCRequestServer sharedInstance] classFeature:self.feature];
+    }];
+    
+//    UIAlertAction *act2 = [UIAlertAction actionWithTitle:@"从照片库选择" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//        [self imagePickWithSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+//    }];
+    
+    UIAlertAction *act3 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    
+    [AC addAction:act1];
+//    [AC addAction:act2];
+    [AC addAction:act3];
+    
+    [self presentViewController:AC animated:YES completion:nil];
+}
+- (IBAction)updata {
+    if (!self.feature) {
+        [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
+        [SVProgressHUD setMinimumDismissTimeInterval:2];
+        [SVProgressHUD showErrorWithStatus:@"未检测到特征值！\n请先提取特征！"];
+        return;
+    }
+    
+    ZCUpdataViewController *UC = [ZCUpdataViewController controllerWithFeature:self.feature image:self.faceImageView.image];
+    
+    [self presentViewController:UC animated:YES completion:nil];
 }
 
 - (void)viewDidLoad {

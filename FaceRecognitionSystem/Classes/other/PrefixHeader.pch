@@ -17,8 +17,8 @@
 #ifdef __OBJC__
 
 
-#import "UIImage+Image.h"
-#import "UIView+Frame.h"
+#import "UIImage+ZCExtension.h"
+#import "UIView+ZCExtension.h"
 #import "NSObject+Model.h"
 
 #define ZCKeyWindow [UIApplication sharedApplication].keyWindow

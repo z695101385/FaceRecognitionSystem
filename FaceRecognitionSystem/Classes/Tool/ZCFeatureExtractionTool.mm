@@ -8,6 +8,7 @@
 
 #import "ZCFeatureExtractionTool.h"
 #import "opencv2/opencv.hpp"
+#import "SVProgressHUD.h"
 
 @interface ZCFeatureExtractionTool ()
 
@@ -17,15 +18,31 @@
 
 @implementation ZCFeatureExtractionTool
 
-- (NSArray *)featureExtraction
+- (NSString *)featureExtractUseMethod:(ZCFeatureExtractMethod)method
 {
+    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
+    [SVProgressHUD showWithStatus:@"特征提取中..."];
+    [SVProgressHUD setMinimumDismissTimeInterval:1];
     if (_IplImage) {
         
-        NSArray *fea = [self LBP];
-        NSLog(@"%@",fea);
+        NSString *fea = nil;
+        
+        switch (method) {
+            case 0:
+                fea = [self LBP];
+                break;
+            case 1:
+                fea = [self MLBP];
+                break;
+            default:
+                [SVProgressHUD showErrorWithStatus:@"错误的方法！！"];
+                return fea;
+        }
+        
+        [SVProgressHUD showSuccessWithStatus:@"特征提取完成！"];
         return fea;
     }
-    
+    [SVProgressHUD showErrorWithStatus:@"图像未找到！！"];
     return nil;
 }
 
@@ -76,9 +93,11 @@
     cvReleaseImage(&_IplImage);
 }
 
-- (NSArray *)LBP
+- (NSString *)LBP
 {
-    NSMutableArray *fea = [NSMutableArray array];
+    NSMutableString *fea = [NSMutableString stringWithString:@"FEA_LBP"];
+    
+    
     for(int j = 1; j < _IplImage->width - 1; j++)
     {
         for(int i = 1; i < _IplImage->height - 1; i++)
@@ -100,7 +119,40 @@
                 temp += (neighborhood[k] >= center)<<k;
             }
             
-            [fea addObject:@(temp)];
+            [fea appendFormat:@"_%d",temp];
+        }
+    }
+    
+    return [fea copy];
+}
+
+- (NSString *)MLBP
+{
+    NSMutableString *fea = [NSMutableString stringWithString:@"FEA_MLBP"];
+    
+    
+    for(int j = 1; j < _IplImage->width - 1; j++)
+    {
+        for(int i = 1; i < _IplImage->height - 1; i++)
+        {
+            uchar neighborhood[8] = {0};
+            neighborhood[7] = CV_IMAGE_ELEM(_IplImage, uchar, i-1, j-1);
+            neighborhood[6] = CV_IMAGE_ELEM(_IplImage, uchar, i-1, j);
+            neighborhood[5] = CV_IMAGE_ELEM(_IplImage, uchar, i-1, j+1);
+            neighborhood[4] = CV_IMAGE_ELEM(_IplImage, uchar, i, j-1);
+            neighborhood[3] = CV_IMAGE_ELEM(_IplImage, uchar, i, j+1);
+            neighborhood[2] = CV_IMAGE_ELEM(_IplImage, uchar, i+1, j-1);
+            neighborhood[1] = CV_IMAGE_ELEM(_IplImage, uchar, i+1, j);
+            neighborhood[0] = CV_IMAGE_ELEM(_IplImage, uchar, i+1, j+1);
+            uchar center = CV_IMAGE_ELEM( _IplImage, uchar, i, j);
+            uchar temp=0;
+            
+            for(int k=0;k<8;k++)
+            {
+                temp += (neighborhood[k] >= center)<<k;
+            }
+            
+            [fea appendFormat:@"_%d",temp];
         }
     }
     

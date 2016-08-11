@@ -83,6 +83,8 @@ static id _instace;
     
     self.type = ZCRequestTypeClassFeature;
     
+    self.waitForData = YES;
+    
     NSError *err;
     
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
@@ -100,6 +102,8 @@ static id _instace;
 {
     self.type = ZCRequestTypeAddFeature;
     
+    self.waitForData = YES;
+    
     NSError *err;
     
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
@@ -112,7 +116,9 @@ static id _instace;
     
     self.ID = ID;
     
-    if (err) NSLog(@"%@",err);
+    if (err) {
+       NSLog(@"%@",err);
+    }
 }
 
 - (void)socket:(GCDAsyncSocket *)clientSocket didConnectToHost:(NSString *)host port:(uint16_t)port
@@ -138,8 +144,6 @@ static id _instace;
     [clientSocket writeData:data withTimeout:30 tag:0];
     
     [clientSocket readDataWithTimeout:30 tag:0];
-    
-    self.waitForData = YES;
 }
 
 - (void)socketDidDisconnect:(GCDAsyncSocket *)clientSocket withError:(NSError *)err

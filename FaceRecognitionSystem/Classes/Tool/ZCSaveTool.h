@@ -13,4 +13,10 @@
 
 + (instancetype)sharedInstance;
 
+- (void)saveIP:(NSString *)IP  port:(NSString *)port;
+
+- (NSString *)IP;
+
+- (uint16_t)port;
+
 @end

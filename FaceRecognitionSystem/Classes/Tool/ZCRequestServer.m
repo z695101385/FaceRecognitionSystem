@@ -7,6 +7,7 @@
 //
 
 #import "ZCRequestServer.h"
+#import "ZCSaveTool.h"
 #import "GCDAsyncSocket.h"
 #import "SVProgressHUD.h"
 
@@ -29,6 +30,9 @@ typedef enum : NSUInteger {
 /** 操作类型 */
 @property (nonatomic, assign) ZCRequestType type;
 
+/** ZCSaveTool */
+@property (nonatomic, strong) ZCSaveTool *saveTool;
+
 /** 是否在等待服务器返回值 */
 @property (nonatomic, assign, getter=isWaitForData) BOOL waitForData;
 
@@ -37,6 +41,14 @@ typedef enum : NSUInteger {
 @implementation ZCRequestServer
 
 static id _instace;
+
+- (ZCSaveTool *)saveTool
+{
+    if (!_saveTool) {
+        _saveTool = [ZCSaveTool sharedInstance];
+    }
+    return _saveTool;
+}
 
 + (instancetype)allocWithZone:(struct _NSZone *)zone
 {
@@ -85,13 +97,21 @@ static id _instace;
     
     self.waitForData = YES;
     
+    NSString *IP = [self.saveTool IP];
+    
+    if (!IP) return;
+    
+    uint16_t port = [self.saveTool port];
+    
+    if (!port) return;
+    
     NSError *err;
     
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
     
     [SVProgressHUD showWithStatus:@"正在连接服务器..."];
     
-    [self.clientSocket connectToHost:@"192.168.1.111" onPort:2333 error:&err];
+    [self.clientSocket connectToHost:IP onPort:port error:&err];
     
     self.feature = feature;
     
@@ -104,13 +124,21 @@ static id _instace;
     
     self.waitForData = YES;
     
+    NSString *IP = [self.saveTool IP];
+    
+    if (!IP) return;
+    
+    uint16_t port = [self.saveTool port];
+    
+    if (!port) return;
+    
     NSError *err;
     
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
     
     [SVProgressHUD showWithStatus:@"正在连接服务器..."];
     
-    [self.clientSocket connectToHost:@"192.168.1.111" onPort:2333 error:&err];
+    [self.clientSocket connectToHost:IP onPort:port error:&err];
     
     self.feature = feature;
     

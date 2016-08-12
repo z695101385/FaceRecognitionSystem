@@ -70,5 +70,8 @@
     [self.view endEditing:YES];
 }
 
+- (IBAction)endEditing {
+    [self.view endEditing:YES];
+}
 
 @end

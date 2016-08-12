@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11185.3" systemVersion="16A286a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11151.4"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="4N4-NC-u8T" customClass="ZCKeyboardToolBar">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+            <items>
+                <barButtonItem title="上一项" style="done" id="v5b-zT-ud9">
+                    <connections>
+                        <action selector="lastField" destination="4N4-NC-u8T" id="1z9-A1-pjb"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem title="下一项" style="done" id="d5X-Q0-mQy">
+                    <connections>
+                        <action selector="nextField" destination="4N4-NC-u8T" id="Q15-Ea-ZMW"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem style="plain" systemItem="flexibleSpace" id="ecH-aZ-ITU"/>
+                <barButtonItem title="完成" id="uGg-BJ-nvi">
+                    <connections>
+                        <action selector="doneEditing" destination="4N4-NC-u8T" id="Nck-Cd-kEj"/>
+                    </connections>
+                </barButtonItem>
+            </items>
+            <connections>
+                <outlet property="doneEditButton" destination="uGg-BJ-nvi" id="xbm-84-WQ1"/>
+                <outlet property="lastButton" destination="v5b-zT-ud9" id="HoU-hh-8fu"/>
+                <outlet property="nextButton" destination="d5X-Q0-mQy" id="xjR-nM-3OF"/>
+            </connections>
+            <point key="canvasLocation" x="365" y="278"/>
+        </toolbar>
+    </objects>
+</document>

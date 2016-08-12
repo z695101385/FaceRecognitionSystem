@@ -60,11 +60,15 @@
 		F76F90F51D5C5AD000358E46 /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F76F90EE1D5C5AD000358E46 /* SVRadialGradientLayer.m */; };
 		F76F90F91D5C5F5100358E46 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = F76F90F81D5C5F5100358E46 /* GCDAsyncSocket.m */; };
 		F76F90FC1D5C5F7E00358E46 /* ZCRequestServer.m in Sources */ = {isa = PBXBuildFile; fileRef = F76F90FB1D5C5F7E00358E46 /* ZCRequestServer.m */; };
+		F78A02111D5D8E10004CF62B /* ZCSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F78A02101D5D8E10004CF62B /* ZCSettingViewController.m */; };
+		F78A02181D5D9649004CF62B /* ZCAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F78A02171D5D9649004CF62B /* ZCAddressViewController.m */; };
+		F78A021B1D5D9758004CF62B /* ZCNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F78A021A1D5D9758004CF62B /* ZCNavigationController.m */; };
+		F78A02241D5DA527004CF62B /* ZCKeyboardToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F78A02221D5DA527004CF62B /* ZCKeyboardToolBar.m */; };
+		F78A02251D5DA527004CF62B /* ZCKeyboardToolBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = F78A02231D5DA527004CF62B /* ZCKeyboardToolBar.xib */; };
 		F7AA0F6A1D5C95AC0059FD30 /* ZCUpdataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AA0F681D5C95AC0059FD30 /* ZCUpdataViewController.m */; };
 		F7AA0F6B1D5C95AC0059FD30 /* ZCUpdataViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7AA0F691D5C95AC0059FD30 /* ZCUpdataViewController.xib */; };
 		F7D229221CF71581000AB735 /* ZCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D229211CF71581000AB735 /* ZCViewController.m */; };
 		F7D229241CF7158E000AB735 /* ZCViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7D229231CF7158E000AB735 /* ZCViewController.storyboard */; };
-		F7D2292A1CF7192C000AB735 /* ZCTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D229291CF7192C000AB735 /* ZCTestViewController.m */; };
 		F7D2292D1CF71945000AB735 /* ZCTrainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D2292C1CF71945000AB735 /* ZCTrainViewController.m */; };
 		F7FDADF21D2108E0008FF16C /* haarcascade_eye_tree_eyeglasses.xml in Resources */ = {isa = PBXBuildFile; fileRef = F7FDADF11D2108E0008FF16C /* haarcascade_eye_tree_eyeglasses.xml */; };
 /* End PBXBuildFile section */
@@ -187,14 +191,21 @@
 		F76F90F81D5C5F5100358E46 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
 		F76F90FA1D5C5F7E00358E46 /* ZCRequestServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCRequestServer.h; sourceTree = "<group>"; };
 		F76F90FB1D5C5F7E00358E46 /* ZCRequestServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCRequestServer.m; sourceTree = "<group>"; };
+		F78A020F1D5D8E10004CF62B /* ZCSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCSettingViewController.h; sourceTree = "<group>"; };
+		F78A02101D5D8E10004CF62B /* ZCSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCSettingViewController.m; sourceTree = "<group>"; };
+		F78A02161D5D9649004CF62B /* ZCAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCAddressViewController.h; sourceTree = "<group>"; };
+		F78A02171D5D9649004CF62B /* ZCAddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCAddressViewController.m; sourceTree = "<group>"; };
+		F78A02191D5D9758004CF62B /* ZCNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCNavigationController.h; sourceTree = "<group>"; };
+		F78A021A1D5D9758004CF62B /* ZCNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCNavigationController.m; sourceTree = "<group>"; };
+		F78A02211D5DA527004CF62B /* ZCKeyboardToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCKeyboardToolBar.h; sourceTree = "<group>"; };
+		F78A02221D5DA527004CF62B /* ZCKeyboardToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCKeyboardToolBar.m; sourceTree = "<group>"; };
+		F78A02231D5DA527004CF62B /* ZCKeyboardToolBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZCKeyboardToolBar.xib; sourceTree = "<group>"; };
 		F7AA0F671D5C95AC0059FD30 /* ZCUpdataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCUpdataViewController.h; sourceTree = "<group>"; };
 		F7AA0F681D5C95AC0059FD30 /* ZCUpdataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCUpdataViewController.m; sourceTree = "<group>"; };
 		F7AA0F691D5C95AC0059FD30 /* ZCUpdataViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZCUpdataViewController.xib; sourceTree = "<group>"; };
 		F7D229201CF71581000AB735 /* ZCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCViewController.h; sourceTree = "<group>"; };
 		F7D229211CF71581000AB735 /* ZCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCViewController.m; sourceTree = "<group>"; };
 		F7D229231CF7158E000AB735 /* ZCViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ZCViewController.storyboard; sourceTree = "<group>"; };
-		F7D229281CF7192C000AB735 /* ZCTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCTestViewController.h; sourceTree = "<group>"; };
-		F7D229291CF7192C000AB735 /* ZCTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCTestViewController.m; sourceTree = "<group>"; };
 		F7D2292B1CF71945000AB735 /* ZCTrainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCTrainViewController.h; sourceTree = "<group>"; };
 		F7D2292C1CF71945000AB735 /* ZCTrainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCTrainViewController.m; sourceTree = "<group>"; };
 		F7FDADF11D2108E0008FF16C /* haarcascade_eye_tree_eyeglasses.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_eye_tree_eyeglasses.xml; sourceTree = "<group>"; };
@@ -345,6 +356,7 @@
 				F747FEE11CFFD424002A38BF /* detection */,
 				F70A4B951CFED3CA00A21173 /* Tool */,
 				F7650B301CF710B600DE8CC5 /* main */,
+				F78A02121D5D95D9004CF62B /* Setting */,
 				F7650B361CF710B600DE8CC5 /* other */,
 			);
 			path = Classes;
@@ -366,10 +378,12 @@
 				F7D229201CF71581000AB735 /* ZCViewController.h */,
 				F7D229211CF71581000AB735 /* ZCViewController.m */,
 				F7D229231CF7158E000AB735 /* ZCViewController.storyboard */,
-				F7D229281CF7192C000AB735 /* ZCTestViewController.h */,
-				F7D229291CF7192C000AB735 /* ZCTestViewController.m */,
+				F78A02191D5D9758004CF62B /* ZCNavigationController.h */,
+				F78A021A1D5D9758004CF62B /* ZCNavigationController.m */,
 				F7D2292B1CF71945000AB735 /* ZCTrainViewController.h */,
 				F7D2292C1CF71945000AB735 /* ZCTrainViewController.m */,
+				F78A020F1D5D8E10004CF62B /* ZCSettingViewController.h */,
+				F78A02101D5D8E10004CF62B /* ZCSettingViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -559,6 +573,42 @@
 			path = TCP;
 			sourceTree = "<group>";
 		};
+		F78A02121D5D95D9004CF62B /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				F78A02131D5D95D9004CF62B /* Controller */,
+				F78A02141D5D95D9004CF62B /* Model */,
+				F78A02151D5D95D9004CF62B /* View */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		F78A02131D5D95D9004CF62B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F78A02161D5D9649004CF62B /* ZCAddressViewController.h */,
+				F78A02171D5D9649004CF62B /* ZCAddressViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F78A02141D5D95D9004CF62B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F78A02151D5D95D9004CF62B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F78A02211D5DA527004CF62B /* ZCKeyboardToolBar.h */,
+				F78A02221D5DA527004CF62B /* ZCKeyboardToolBar.m */,
+				F78A02231D5DA527004CF62B /* ZCKeyboardToolBar.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		F7AA0F631D5C958E0059FD30 /* updata */ = {
 			isa = PBXGroup;
 			children = (
@@ -708,6 +758,7 @@
 				F7D229241CF7158E000AB735 /* ZCViewController.storyboard in Resources */,
 				F76F90EF1D5C5AD000358E46 /* LICENSE.txt in Resources */,
 				F747FEE91CFFD99A002A38BF /* ZCFaceDeteController.xib in Resources */,
+				F78A02251D5DA527004CF62B /* ZCKeyboardToolBar.xib in Resources */,
 				F7650B591CF7114D00DE8CC5 /* MBProgressHUD.bundle in Resources */,
 				F7FDADF21D2108E0008FF16C /* haarcascade_eye_tree_eyeglasses.xml in Resources */,
 			);
@@ -747,6 +798,7 @@
 				F7650B3B1CF710B600DE8CC5 /* AppDelegate.m in Sources */,
 				F76AEEE51D5B3128006B3570 /* UIImage+ZCExtension.m in Sources */,
 				F76AEEDE1D5B3128006B3570 /* Foundation+Log.m in Sources */,
+				F78A02241D5DA527004CF62B /* ZCKeyboardToolBar.m in Sources */,
 				F76F90E11D5C59F500358E46 /* UIView+WebCacheOperation.m in Sources */,
 				F76AEEE11D5B3128006B3570 /* NSObject+Extension.m in Sources */,
 				F7650B571CF7114D00DE8CC5 /* UIImage+BoxBlur.m in Sources */,
@@ -754,6 +806,8 @@
 				F76F90DA1D5C59F500358E46 /* SDWebImageManager.m in Sources */,
 				F76F90F51D5C5AD000358E46 /* SVRadialGradientLayer.m in Sources */,
 				F76AEEE21D5B3128006B3570 /* NSObject+Model.m in Sources */,
+				F78A021B1D5D9758004CF62B /* ZCNavigationController.m in Sources */,
+				F78A02111D5D8E10004CF62B /* ZCSettingViewController.m in Sources */,
 				F70A4B9B1CFED44500A21173 /* ZCSaveTool.m in Sources */,
 				F76F90DD1D5C59F500358E46 /* UIImage+GIF.m in Sources */,
 				F76AEEE41D5B3128006B3570 /* UIBarButtonItem+ZCExtension.m in Sources */,
@@ -763,7 +817,6 @@
 				F76F90DE1D5C59F500358E46 /* UIImage+MultiFormat.m in Sources */,
 				F76F90D91D5C59F500358E46 /* SDWebImageDownloaderOperation.m in Sources */,
 				F76AEEE01D5B3128006B3570 /* NSDate+ZCExtension.m in Sources */,
-				F7D2292A1CF7192C000AB735 /* ZCTestViewController.m in Sources */,
 				F76AEEDF1D5B3128006B3570 /* NSString+Hash.m in Sources */,
 				F76AEEE31D5B3128006B3570 /* NSString+MIMEType.m in Sources */,
 				F76F90D71D5C59F500358E46 /* SDWebImageDecoder.m in Sources */,
@@ -777,6 +830,7 @@
 				F7D229221CF71581000AB735 /* ZCViewController.m in Sources */,
 				F76F90F21D5C5AD000358E46 /* SVProgressAnimatedView.m in Sources */,
 				F76AEEE61D5B3128006B3570 /* UIImageView+ZCExtension.m in Sources */,
+				F78A02181D5D9649004CF62B /* ZCAddressViewController.m in Sources */,
 				F76F90FC1D5C5F7E00358E46 /* ZCRequestServer.m in Sources */,
 				F76F90F01D5C5AD000358E46 /* README.md in Sources */,
 				F76F90D51D5C59F500358E46 /* SDImageCache.m in Sources */,
@@ -927,11 +981,12 @@
 				GCC_INPUT_FILETYPE = automatic;
 				GCC_PREFIX_HEADER = FaceRecognitionSystem/Classes/Other/PrefixHeader.pch;
 				INFOPLIST_FILE = FaceRecognitionSystem/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhangchen.FaceRecognitionSystemNew;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -948,11 +1003,12 @@
 				GCC_INPUT_FILETYPE = automatic;
 				GCC_PREFIX_HEADER = FaceRecognitionSystem/Classes/Other/PrefixHeader.pch;
 				INFOPLIST_FILE = FaceRecognitionSystem/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhangchen.FaceRecognitionSystemNew;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

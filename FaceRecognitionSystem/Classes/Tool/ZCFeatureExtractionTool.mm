@@ -126,10 +126,19 @@
     return [fea copy];
 }
 
+int HistogramBlock = 59;
+float HistogramRange1[2]={0,255};
+float *HistogramRange[1]={&HistogramRange1[0]};
+
 - (NSString *)MLBP
 {
     NSMutableString *fea = [NSMutableString stringWithString:@"FEA_MLBP"];
     
+    int hist[256];
+    
+    for (int i = 0; i < 256; i++) {
+        hist[i] = 0;
+    }
     
     for(int j = 1; j < _IplImage->width - 1; j++)
     {
@@ -152,15 +161,25 @@
                 temp += (neighborhood[k] >= center)<<k;
             }
             
-            [fea appendFormat:@"_%d",temp];
+            if (i >= 16 && i<= 63 && j >= 16 && j <= 47) {
+                [fea appendFormat:@"_%d",temp];
+            } else {
+                hist[temp] += 1;
+            }
         }
     }
     
+    for (int i = 0; i < 256; i++) {
+        [fea appendFormat:@"_%d",hist[i]];
+    }
     return [fea copy];
 }
 
 void LBP(IplImage* src, IplImage* dst)
 {
+    
+    
+    
     int width=src->width;
     int height=src->height;
     for(int j=1;j<width-1;j++)

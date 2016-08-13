@@ -144,9 +144,7 @@ static id _instace;
     
     self.ID = ID;
     
-    if (err) {
-       NSLog(@"%@",err);
-    }
+    if (err) NSLog(@"%@",err);
 }
 
 - (void)socket:(GCDAsyncSocket *)clientSocket didConnectToHost:(NSString *)host port:(uint16_t)port
@@ -192,17 +190,13 @@ static id _instace;
     
     self.waitForData = NO;
     
-    if ([str containsString:@"库中最接近结果为："])
+    if ([str containsString:@"库中最接近结果为："] || [str containsString:@"特征上传成功！"])
     {
         [SVProgressHUD showSuccessWithStatus:str];
         [clientSocket disconnect];
         return;
-    } else if ([str containsString:@"特征上传成功！"]) {
-        [SVProgressHUD showSuccessWithStatus:str];
-        [clientSocket disconnect];
-        return;
-    }
-    else {
+    } else {
+        
         [SVProgressHUD showErrorWithStatus:str];
         [clientSocket disconnect];
         return;

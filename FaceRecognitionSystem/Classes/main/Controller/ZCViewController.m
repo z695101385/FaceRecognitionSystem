@@ -16,19 +16,9 @@
 
 + (void)initialize
 {
-    //设置UITabBarItem富文本属性
-    NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
-    attrs[NSFontAttributeName] = [UIFont systemFontOfSize:12];
-    attrs[NSForegroundColorAttributeName] = [UIColor grayColor];
+    UITabBar *bar = [UITabBar appearance];
     
-    NSMutableDictionary *selAttrs = [NSMutableDictionary dictionary];
-    selAttrs[NSFontAttributeName] = attrs[NSFontAttributeName];
-    selAttrs[NSForegroundColorAttributeName] = [UIColor lightGrayColor];
-    
-    UITabBarItem *item = [UITabBarItem appearance];
-    
-    [item setTitleTextAttributes:attrs forState:UIControlStateNormal];
-    [item setTitleTextAttributes:selAttrs forState:UIControlStateHighlighted];
+    [bar setTintColor:[UIColor blackColor]];
 }
 
 - (void)viewDidLoad {

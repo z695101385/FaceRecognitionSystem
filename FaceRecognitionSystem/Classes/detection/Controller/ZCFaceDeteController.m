@@ -200,8 +200,6 @@
     
     self.imageView = imageView;
     
-    _imageView.center = CGPointMake(_maskView.width / 2, _maskView.height / 2);
-    
     _imageView.userInteractionEnabled = YES;
     
     UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
@@ -223,6 +221,11 @@
     [_maskView addSubview:_imageView];
     
     _ROIImageView.image = _image;
+}
+
+- (void)viewDidLayoutSubviews
+{
+    _imageView.center = CGPointMake(_maskView.width / 2, _maskView.height / 2);
 }
 
 

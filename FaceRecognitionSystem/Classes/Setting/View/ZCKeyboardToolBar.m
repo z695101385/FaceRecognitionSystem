@@ -37,7 +37,7 @@
         textField.inputAccessoryView = Ktb;
     }
     
-    [[NSNotificationCenter defaultCenter] addObserver:Ktb selector:@selector(keyboardWasShown) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:Ktb selector:@selector(keyboardWasShown:) name:UIKeyboardWillChangeFrameNotification object:nil];
     
     return Ktb;
 }
@@ -94,21 +94,16 @@
  *  检测按钮状态
  */
 - (void)checkButtonStatus {
-    if (_numberOfcurrentField == 0) {
-        _lastButton.enabled = NO;
-        _nextButton.enabled = YES;
-    }else if(_numberOfcurrentField == _fieldArr.count - 1) {
-        _lastButton.enabled = YES;
-        _nextButton.enabled = NO;
-    }else {
-        _lastButton.enabled = YES;
-        _nextButton.enabled = YES;
-    }
+    
+    _lastButton.enabled = YES;
+    _nextButton.enabled = YES;
+    if (_numberOfcurrentField == 0) _lastButton.enabled = NO;
+    if(_numberOfcurrentField == _fieldArr.count - 1) _nextButton.enabled = NO;
 }
 /**
  *  即将出现时，检测状态
  */
-- (void)keyboardWasShown
+- (void)keyboardWasShown:(NSNotification *)notification
 {
     for (UITextField *text in _fieldArr) {
         if ([text isFirstResponder]) {
@@ -117,6 +112,31 @@
         }
     }
     [self checkButtonStatus];
+    
+    CGRect kFrame = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    CGFloat duration = [notification.userInfo[UIKeyboardAnimationDurationUserInfoKey] floatValue];
+    
+    if ([UIScreen mainScreen].bounds.size.height == kFrame.origin.y) {//收起
+        UIViewController *vc = self.currentController;
+        [UIView animateWithDuration:duration animations:^{
+            vc.view.transform = CGAffineTransformIdentity;
+        }];
+    } else {//弹出
+        
+        CGFloat fbottom = self.currentField.frame.origin.y + self.currentField.frame.size.height;
+        CGFloat trans = kFrame.origin.y - fbottom;
+        
+        UIViewController *vc = self.currentController;
+        if (trans < 0) {
+            [UIView animateWithDuration:duration animations:^{
+                vc.view.transform = CGAffineTransformMakeTranslation(0, trans);
+            }];
+        } else {
+            [UIView animateWithDuration:duration animations:^{
+                vc.view.transform = CGAffineTransformIdentity;
+            }];
+        }
+    }
 }
 
 - (void)dealloc
@@ -124,6 +144,17 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+- (UIViewController *)currentController
+{
+    UIResponder *responder = [self nextResponder];
+    while (responder) {
+        if ([responder isKindOfClass:[UIViewController class]]) {
+            return (UIViewController *)responder;
+        }
+        responder = [responder nextResponder];
+    }
+    return nil;
+}
 
 
 @end

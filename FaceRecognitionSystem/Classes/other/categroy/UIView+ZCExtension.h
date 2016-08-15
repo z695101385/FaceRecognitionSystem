@@ -30,4 +30,6 @@
  */
 + (instancetype)zc_viewFromNib;
 
+- (UIViewController *)currentController;
+
 @end

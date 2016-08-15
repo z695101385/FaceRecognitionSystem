@@ -25,6 +25,8 @@
 @property (nonatomic, strong) ZCCvImage *cvImage;
 
 @property (weak, nonatomic) IBOutlet UILabel *countLabel;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *lastBarButtonItem;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *nextBarButtonItem;
 
 @end
 
@@ -57,6 +59,11 @@
         _countLabel.text = @"Face not detected";
     } else {
         _countLabel.text = [NSString stringWithFormat:@"%d of total %d", index + 1, numberOfFace];
+    }
+    
+    if (numberOfFace <= 1) {
+        self.lastBarButtonItem.enabled = NO;
+        self.nextBarButtonItem.enabled = NO;
     }
 }
 

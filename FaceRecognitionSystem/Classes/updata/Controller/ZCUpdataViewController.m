@@ -9,12 +9,14 @@
 #import "ZCUpdataViewController.h"
 #import "ZCRequestServer.h"
 #import "SVProgressHUD.h"
+#import "ZCKeyboardToolBar.h"
 
 @interface ZCUpdataViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *featureTypeLabel;
 @property (weak, nonatomic) IBOutlet UITextField *IDTextField;
-
+/** ZCKeyboardToolBar */
+@property (nonatomic, strong) ZCKeyboardToolBar *keyboardToolBar;
 @end
 
 @implementation ZCUpdataViewController
@@ -28,9 +30,7 @@
     
     [[ZCRequestServer sharedInstance] addFeature:self.feature ID:self.IDTextField.text];
     
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        while (![SVProgressHUD isVisible]) [self cancel];
-    });
+    [self cancel];
 }
 
 
@@ -57,6 +57,8 @@
     NSString *method = [self.feature componentsSeparatedByString:@"_"][1];
     
     self.featureTypeLabel.text = [NSString stringWithFormat:@"特征类型：%@",method];
+    
+    _keyboardToolBar = [ZCKeyboardToolBar keyboardWithFieldArray:@[self.IDTextField]];
     
 }
 

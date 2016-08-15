@@ -16,21 +16,23 @@
     
     [bar setBackgroundImage:[UIImage imageNamed:@"navigationbarBackgroundWhite"] forBarMetrics:UIBarMetricsDefault];
     
+    [bar setTintColor:[UIColor blackColor]];
+    
 //    [bar setBackgroundColor:[UIColor redColor]];
     [bar setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:17]}];
     
-    UIBarButtonItem *item = [UIBarButtonItem appearance];
- 
-    NSMutableDictionary *attrDisabledDict = [NSMutableDictionary dictionary];
-    attrDisabledDict[NSForegroundColorAttributeName] = [UIColor lightGrayColor];
-    attrDisabledDict[NSFontAttributeName] = [UIFont systemFontOfSize:16];
-    [item setTitleTextAttributes:attrDisabledDict forState:UIControlStateHighlighted];
-    
-    
-    NSMutableDictionary *attrNormalDict = [NSMutableDictionary dictionary];
-    attrNormalDict[NSForegroundColorAttributeName] = [UIColor blackColor];
-    attrNormalDict[NSFontAttributeName] = [UIFont systemFontOfSize:16];
-    [item setTitleTextAttributes:attrNormalDict forState:UIControlStateNormal];
+//    UIBarButtonItem *item = [UIBarButtonItem appearance];
+// 
+//    NSMutableDictionary *attrDisabledDict = [NSMutableDictionary dictionary];
+//    attrDisabledDict[NSForegroundColorAttributeName] = [UIColor lightGrayColor];
+//    attrDisabledDict[NSFontAttributeName] = [UIFont systemFontOfSize:16];
+//    [item setTitleTextAttributes:attrDisabledDict forState:UIControlStateHighlighted];
+//    
+//    
+//    NSMutableDictionary *attrNormalDict = [NSMutableDictionary dictionary];
+//    attrNormalDict[NSForegroundColorAttributeName] = [UIColor blackColor];
+//    attrNormalDict[NSFontAttributeName] = [UIFont systemFontOfSize:16];
+//    [item setTitleTextAttributes:attrNormalDict forState:UIControlStateNormal];
     
 }
 

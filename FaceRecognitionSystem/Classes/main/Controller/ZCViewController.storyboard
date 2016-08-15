@@ -7,6 +7,23 @@
     </dependencies>
     <scenes>
         <!--人脸识别-->
+        <scene sceneID="dpR-16-zyF">
+            <objects>
+                <navigationController id="4JH-6c-HM0" customClass="ZCNavigationController" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="人脸识别" image="face_detect_un" selectedImage="face_detect" id="Y9w-fM-hMh"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zzP-Cc-e42">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="v22-j2-Mu3" kind="relationship" relationship="rootViewController" id="SV0-vA-6jp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WFF-CD-9k7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="278" y="-357"/>
+        </scene>
+        <!--人脸识别-->
         <scene sceneID="Git-Jb-09i">
             <objects>
                 <viewController id="v22-j2-Mu3" customClass="ZCTrainViewController" sceneMemberID="viewController">
@@ -97,13 +114,14 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="人脸识别" image="face_detect_un" selectedImage="face_detect" id="2at-U4-deN"/>
+                    <navigationItem key="navigationItem" title="人脸识别" id="uiX-ov-CVd"/>
                     <connections>
                         <outlet property="faceImageView" destination="9tn-Lj-ePm" id="ELV-05-O5V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qan-kZ-NjG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="278" y="-354"/>
+            <point key="canvasLocation" x="1082" y="-357"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="d8g-ve-CKa">
@@ -116,7 +134,7 @@
                         <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="v22-j2-Mu3" kind="relationship" relationship="viewControllers" id="KRd-jj-dff"/>
+                        <segue destination="4JH-6c-HM0" kind="relationship" relationship="viewControllers" id="wKB-bJ-es2"/>
                         <segue destination="5HX-ud-MfO" kind="relationship" relationship="viewControllers" id="1Ec-Uf-Kg7"/>
                     </connections>
                 </tabBarController>
@@ -139,11 +157,11 @@
                                         <rect key="frame" x="0.0" y="99" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Oix-MH-raq" id="zLB-WY-vL0">
-                                            <frame key="frameInset" width="287" height="43.5"/>
+                                            <frame key="frameInset" width="287" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="通信地址" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Y7a-Wo-NIy">
-                                                    <frame key="frameInset" minX="15" width="270" height="43.5"/>
+                                                    <frame key="frameInset" minX="15" width="270" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -172,7 +190,7 @@
         <!--通信地址-->
         <scene sceneID="KZR-1t-0VK">
             <objects>
-                <viewController title="通信地址" id="fLe-ne-8uG" customClass="ZCAddressViewController" sceneMemberID="viewController">
+                <viewController title="通信地址" hidesBottomBarWhenPushed="YES" id="fLe-ne-8uG" customClass="ZCAddressViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="a3I-hH-XGe"/>
                         <viewControllerLayoutGuide type="bottom" id="9Bb-D9-eCR"/>
@@ -252,7 +270,7 @@
     </scenes>
     <resources>
         <image name="face_detect" width="28" height="31"/>
-        <image name="face_detect_un" width="28" height="30"/>
+        <image name="face_detect_un" width="28" height="31"/>
         <image name="faceholder" width="604" height="602"/>
         <image name="settings" width="32" height="32"/>
         <image name="settings_un" width="32" height="32"/>

@@ -155,13 +155,13 @@ static id _instace;
         
         [SVProgressHUD showWithStatus:@"正在获取识别结果..."];
         
-        sentStr = [NSString stringWithFormat:@"%@\n",self.feature];
+        sentStr = [NSString stringWithFormat:@"%@\r\n",self.feature];
         
     } else if (self.type == ZCRequestTypeAddFeature) {
         
         [SVProgressHUD showWithStatus:@"特征上传中..."];
         
-        sentStr = [NSString stringWithFormat:@"ID_%@_%@\n",self.ID,self.feature];
+        sentStr = [NSString stringWithFormat:@"ID_%@_%@\r\n",self.ID,self.feature];
     }
     
     

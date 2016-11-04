@@ -13,7 +13,7 @@
 
 + (instancetype)sharedInstance;
 
-- (void)saveIP:(NSString *)IP  port:(NSString *)port;
+- (void)saveIP:(NSString *)IP port:(NSString *)port;
 
 - (NSString *)IP;
 

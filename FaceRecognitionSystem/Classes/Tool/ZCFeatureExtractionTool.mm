@@ -126,9 +126,9 @@
     return [fea copy];
 }
 
-int HistogramBlock = 59;
-float HistogramRange1[2]={0,255};
-float *HistogramRange[1]={&HistogramRange1[0]};
+//int HistogramBlock = 59;
+//float HistogramRange1[2]={0,255};
+//float *HistogramRange[1]={&HistogramRange1[0]};
 
 - (NSString *)MLBP
 {

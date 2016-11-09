@@ -116,31 +116,29 @@
         self.feature = [ft featureExtractUseMethod:ZCFeatureExtractMethodMLBP];
     }];
     
-    UIAlertAction *act3 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *cancelAct = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
     
     [AC addAction:act1];
     [AC addAction:act2];
-    [AC addAction:act3];
+    [AC addAction:cancelAct];
     
     [self presentViewController:AC animated:YES completion:nil];
     
     
 }
+
 - (IBAction)featureRecognition {
     UIAlertController *AC = [UIAlertController alertControllerWithTitle:@"请选择识别方法" message:@"从中选择一种" preferredStyle:UIAlertControllerStyleActionSheet];
     
-    UIAlertAction *act1 = [UIAlertAction actionWithTitle:@"最近邻" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *act1 = [UIAlertAction actionWithTitle:@"分类" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [[ZCRequestServer sharedInstance] classFeature:self.feature];
     }];
     
-//    UIAlertAction *act2 = [UIAlertAction actionWithTitle:@"从照片库选择" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-//        [self imagePickWithSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
-//    }];
+
     
     UIAlertAction *act3 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
     
     [AC addAction:act1];
-//    [AC addAction:act2];
     [AC addAction:act3];
     
     [self presentViewController:AC animated:YES completion:nil];
